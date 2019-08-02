@@ -17,8 +17,8 @@ export class PostsComponent implements OnInit {
   constructor(private service: PostsService) { }
   ngOnInit() {
     this.service.getAll()
-      .subscribe((posts) => {
-        this.posts = posts;
+      .subscribe((posts:any[]) => {
+        this.posts = posts.slice(0, 10);
         this.loader = false;
       }, () => {
         this.loader = false;

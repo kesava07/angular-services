@@ -18,8 +18,8 @@ export class AlbumsComponent implements OnInit {
 
   ngOnInit() {
     this.service.getAll()
-      .subscribe(albums => {
-        this.albums = albums;
+      .subscribe((albums: any[]) => {
+        this.albums = albums.slice(0, 10);
         this.loader = false
       }, () => this.loader = false)
   }

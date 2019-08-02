@@ -32,8 +32,9 @@ import { GithubService } from './Services/github-service/github.service';
     HttpModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
-      { path: "followers", component: GithubProfileComponent },
-      { path: "follower/:userName", component: GithubFollowerComponent },
+      { path: "home", component: HomeComponent },
+      { path: "followers", component: GithubFollowerComponent },
+      { path: "follower/:id/:username", component: GithubProfileComponent },
       { path: "albums", component: AlbumsComponent },
       { path: "posts", component: PostsComponent },
       { path: "**", component: NotFoundPageComponent }

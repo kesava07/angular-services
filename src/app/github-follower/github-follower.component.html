@@ -1,1 +1,19 @@
-<p>github-follower works!</p>
+<div class="container mt-4">
+    <div class="text-center mt-5" *ngIf="loading">
+        <div class="spinner-border text-primary"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let follower of followers">
+            <div class="card card-body my-3">
+                <div class="text-center">
+                    <img class="rounded-circle" [src]="follower.avatar_url" height="100" width="100" />
+                    <div class="text-center mt-3">
+                        <a [routerLink]="['/follower' , follower.id , follower.login]">{{follower.login}}</a>
+                        <br /> <br />
+                        <a href="#">{{follower.html_url}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

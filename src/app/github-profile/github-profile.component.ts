@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GithubService } from '../Services/github-service/github.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-github-profile',
@@ -7,13 +7,17 @@ import { GithubService } from '../Services/github-service/github.service';
   styleUrls: ['./github-profile.component.css']
 })
 export class GithubProfileComponent implements OnInit {
-  constructor(private service: GithubService) { }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.service.getAll()
-      .subscribe(response => {
-        console.log(response)
-      })
+    let id = +this.route.snapshot.paramMap.get("id")
+    console.log(id)
+    // this.route.paramMap
+    //   .subscribe(param => {
+    //     let id = +param.get("id")
+    //     console.log(id)
+    //   })
   }
 
 }
