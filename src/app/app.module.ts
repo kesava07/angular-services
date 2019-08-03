@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { AlbumsComponent } from './albums/albums.component';
@@ -15,6 +17,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { GithubFollowerComponent } from './github-follower/github-follower.component';
 import { GithubService } from './Services/github-service/github.service';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { GithubService } from './Services/github-service/github.service';
       { path: "albums", component: AlbumsComponent },
       { path: "posts", component: PostsComponent },
       { path: "**", component: NotFoundPageComponent }
-    ])
+    ]),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [
     AlbumsService,
